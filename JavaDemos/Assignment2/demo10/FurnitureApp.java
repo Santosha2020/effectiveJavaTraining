@@ -18,12 +18,6 @@ class FurnitureApp{
 
      furnitures.office.Table table1=new furnitures.office.Table();       
         System.out.printf("The price of %s is %d\n",table1, table1.price());
-       
-data.List list=new data.List();
- System.out.printf(list);
-
-data.Table table2=new data.Table();
- System.out.printf(table2);
 
 
 
