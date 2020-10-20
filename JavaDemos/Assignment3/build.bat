@@ -1,2 +1,2 @@
 
-javac -cp .;./javapeople;./chavan FurnitureApp.java
+javac -cp .;./javapeople/data;./chavan/santosh FurnitureApp.java
