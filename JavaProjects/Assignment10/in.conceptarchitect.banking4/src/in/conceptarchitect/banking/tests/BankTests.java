@@ -1,8 +1,11 @@
 package in.conceptarchitect.banking.tests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import in.conceptarchitect.banking.Bank;
@@ -12,44 +15,67 @@ import static in.conceptarchitect.utils.CustomAsserts.*;
 
 public class BankTests {
 	
+	String name="Vivek";
+	String correctPassword="password";
+	double balance=20000;
+	int sourceAccountNumber=5;
+	int targetAccountNumber=7;
+	 Bank bank;
+	 BankAccount account;
+	 
+	 @Before  
+	public void init() {
+		 bank=new Bank(name,balance);
+		 BankAccount account=new BankAccount(name,correctPassword, balance);
+		}
+	 
 	@Test
 	public void transfer_shouldFailIfFromAccountDoesntExist() {
-		fail("Implement the logic here");
+		boolean result=bank.transfer(sourceAccountNumber, balance, correctPassword, 11);
+		assertEquals(false, result);
 	}
 	
 	@Test
 	public void transfer_shouldFailIfInvalidToAccount() {
-		fail("Implement the logic here");
+		boolean result=bank.transfer(sourceAccountNumber, balance, correctPassword, 11);
+		assertFalse(result);
 	}
 	
 	@Test
 	public void transfer_shouldFailForInvalidPassword() {
-		fail("Implement the logic here");
+		boolean result=bank.transfer(sourceAccountNumber, balance, "p@ss", targetAccountNumber);
+		assertFalse(result);
 	}
 	
 	@Test
 	public void transfer_shouldFailForInsufficientBalance() {
-		fail("Implement the logic here");
+		boolean result=bank.transfer(sourceAccountNumber, 30000, correctPassword, targetAccountNumber);
+		assertFalse(result);
 	}
 	
 	@Test
 	public void transfer_shouldSucceedInHappyPath() {
-		fail("Implement the logic here");
+		boolean result=bank.transfer(sourceAccountNumber, 3000, correctPassword, targetAccountNumber);
+		assertTrue(result);
 	}
 	
 	@Test
 	public void creditInterest_creditsOneMonthOfInterest() {
-		fail("Implement the logic here");
+		bank.creditInterests();
+		double updatedBalance= balance+ balance*12/1200;
+		assertEquals(updatedBalance, account.getBalance(),0.2);
 	}
 	
 	@Test
 	public void closeAccount_failsForInvalidAccountNumber() {
-		fail("Implement the logic here");
+		boolean result=bank.close(11,correctPassword );
+		assertFalse(result);
 	}
 	
 	@Test
 	public void closeAccount_cantWithdrawFromClosedAccount() {
-		fail("Implement the logic here");
+		boolean result=bank.close(11,correctPassword );
+		assertFalse(result);
 	}
 	
 	@Test
@@ -68,7 +94,7 @@ public class BankTests {
 	
 	@Test
 	public void openAccount_AssignsSequentialAccountNumber() {
-		fail("Implement the logic here");
+	
 	}
 	
 
