@@ -13,7 +13,7 @@ public class HashMapAccountRepositary {
 
 	//BankAccount [] accounts=new BankAccount[MAX_ACCOUNTS];
 	//ArrayList<BankAccount> accounts = new ArrayList<BankAccount>();
-	//HashMap <> accounts=new HashMap<K, V>();
+	HashMap <Integer,BankAccount> accounts=new HashMap<Integer,BankAccount>();
 	private int accountCount=0;
 	
 	public int addAccount(BankAccount account) {
@@ -39,7 +39,7 @@ public class HashMapAccountRepositary {
 		getAllAccounts().remove(accountNumber); //remove the account
 	}
 	
-	public ArrayList<BankAccount> getAllAccounts() {
+	public HashMap<Integer, BankAccount> getAllAccounts() {
 		return accounts;
 	}
 	
