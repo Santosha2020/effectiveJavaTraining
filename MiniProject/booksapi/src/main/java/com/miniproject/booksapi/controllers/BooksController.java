@@ -57,30 +57,4 @@ public class BooksController {
 		return service.getBookByAuthorName(authorName);
 	}
 	
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	/****************************************************************************/
-	
-	/*
-	 * @PostMapping("/booksave") public String insertBook(@RequestBody Book book) {
-	 * 
-	 * booksRepository.save(book); return "your record is saved....!!"; }
-	 * 
-	 * @GetMapping("/books") public List<Book> getAllBooks() { System.out.println(
-	 * "---------------getAllBooks----------------------------------");
-	 * 
-	 * return booksRepository.findAll(); }
-	 */
 }
